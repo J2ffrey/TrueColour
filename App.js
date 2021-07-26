@@ -11,6 +11,8 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/dist/Ionicons'
+import Ionicons from 'react-native-vector-icons/dist/Ionicons'
 
 // import homeScreen from './src/home';
 // import userScreen from './src/user';
@@ -25,12 +27,40 @@ import TabUserScreen from './src/user_tab';
 const Stack = createStackNavigator(); 
 const Tab = createBottomTabNavigator();
 
+const TabBarIcon = (focused, name) => {
+
+    let iconName, iconSize;
+
+    if (name === 'Home') {
+      iconName = 'ios-color-palette-outline'    
+    } else if (name === 'User') {
+      iconName = 'color-filter-outline'
+    }
+
+  iconSize = focused ? 30: 20
+    return (
+      <Ionicons
+        name = {iconName}
+        size={iconSize}
+        />
+    )
+  }
+
 
 class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+        
+          initialRouteName="Home"
+          screenOptions={({route}) => ({
+            tabBarLabel: route.name,
+            tabBarIcon: ({focused}) =>(
+              TabBarIcon(focused, route.name) 
+            )
+            })}
+        > 
           <Tab.Screen name="Home" component={TabHomeScreen} />
           <Tab.Screen name="User" component={TabUserScreen} />
         </Tab.Navigator>
