@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+		<string>Would you like to access to your photo</string>
+	<key>NSCameraUsageDescription</key>
+		<string>Would you like to access to your camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>Would you like to save photo to your gallery</string>
+	<key>NSMicrophoneUsageDescription</key>
+		<string>Would you like to access to microphone for video</string>
+
 	<key>UIAppFonts</key>
 	<array>
 		<string>Ionicons.ttf</string>

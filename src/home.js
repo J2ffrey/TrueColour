@@ -18,7 +18,7 @@ class homeScreen extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <Text> Home Screen </Text>
+                <Text> True colour App Home </Text>
                 {/* <Button 
                     title = "To User Screen"
                     onPress={()=>{

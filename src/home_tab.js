@@ -17,7 +17,7 @@ class TabHomeScreen extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-                <Text> Home Screen </Text>
+                <Text> True colour App </Text>
             </View>
         )
     }

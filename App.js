@@ -7,17 +7,20 @@
  */
 import 'react-native-gesture-handler';
 import React, { Component} from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/dist/Ionicons'
-import Ionicons from 'react-native-vector-icons/dist/Ionicons'
+import Ionicons from 'react-native-vector-icons/dist/Ionicons';
+import ImagePicker from 'react-native-image-picker';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+
 
 // import homeScreen from './src/home';
 // import userScreen from './src/user';
 import TabHomeScreen from './src/home_tab';
 import TabUserScreen from './src/user_tab';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 // import PropsChild from './PropsChild';
@@ -33,7 +36,7 @@ const TabBarIcon = (focused, name) => {
 
     if (name === 'Home') {
       iconName = 'ios-color-palette-outline'    
-    } else if (name === 'User') {
+    } else if (name === 'Model') {
       iconName = 'color-filter-outline'
     }
 
@@ -48,8 +51,39 @@ const TabBarIcon = (focused, name) => {
 
 
 class App extends Component {
+
+
+
+  CallCamera() {
+    launchCamera({}, (response) => {
+    })
+  }
+  CallLibrary() {
+    launchImageLibrary({}, (response) => {
+    })
+  }
+
   render() {
     return (
+
+
+// 카메라 기능 제작 중 
+      // <>
+      // <View style={styles.Mainview}>      
+      //   <TouchableOpacity onPress={this.CallCamera()}>
+      //     <Text> take Photo </Text>
+      //   </TouchableOpacity>
+      // </View>
+
+      // <View style={styles.Mainview}>      
+      //   <TouchableOpacity onPress={this.CallLibrary()}>
+      //     <Text> Choose your picture </Text>
+      //   </TouchableOpacity>
+      // </View>
+      // </>
+
+
+// 하단바 기능 
       <NavigationContainer>
         <Tab.Navigator
         
@@ -62,7 +96,7 @@ class App extends Component {
             })}
         > 
           <Tab.Screen name="Home" component={TabHomeScreen} />
-          <Tab.Screen name="User" component={TabUserScreen} />
+          <Tab.Screen name="Model" component={TabUserScreen} />
         </Tab.Navigator>
       </NavigationContainer>
 
@@ -95,7 +129,7 @@ class App extends Component {
 
       //   </Stack.Navigator>
       // </NavigationContainer>
-    )
+    );
   }
 
   // state 는 직접 변경하면 안됨 , setSate를 써야함 
@@ -129,7 +163,7 @@ class App extends Component {
   // }
 
 
-}
+};
 
  const styles = StyleSheet.create({
 
@@ -148,4 +182,6 @@ class App extends Component {
      justifyContent: 'center'
    }
  })
+
+
 export default App;

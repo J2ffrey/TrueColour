@@ -13,3 +13,4 @@ react-native: 0.64.2
 6. npm install @react-navigation/stack
 7. npm install @react-navigation/bottom-tabs
 8. npm install --save react-native-vector-icons
+9. npm install --save react-native-image-picker
